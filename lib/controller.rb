@@ -15,14 +15,15 @@ post '/gossips/new/' do
   redirect '/'
 end
 
-get '/show/:author' do 
- show = Gossip.find_author(params[:author])
- if show
-  erb :show, locals: { show: show }
-else
-  status 404
-  "Auteur inconnu"
-end
+ get '/gossips/:id' do
+  id = params[:id].to_i - 1
+  gossips = Gossip.all
+  if id >= 0 && id < gossips.length && gossips[id]
+    erb :show, locals: { show: gossips[id] }
+  else
+    status 404
+    "Gossip non retrouvé"
+  end
  end
 
 

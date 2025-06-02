@@ -8,14 +8,17 @@
     <a href="/gossips/new/">Mon nouveau gossip</a>
     <br>
     <hr>
-    <div>
-        <% gossips.each do |gossip| %>
-  <p>
-    <a href="/show/<%= gossip.author %>"><%= gossip.author %></a><br/>
-    
-    <%= gossip.content %>
-  </p>
-<% end %>
-    </div>
+<div>
+  <% if defined?(gossips) && gossips %>
+    <% gossips.each_with_index do |gossip,id| %>
+      <p>
+        <a href="/gossips/<%= id + 1 %>"><%= gossip&.author %></a><br/>
+        <%= gossip&.content %>
+      </p>
+    <% end %>
+  <% else %>
+    <p>Aucun gossip à afficher.</p>
+  <% end %>
+</div>
   </body>
 </html>
