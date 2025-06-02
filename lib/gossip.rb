@@ -24,6 +24,12 @@ class Gossip
         return all_gossips
     end
 
+    def self.find_author(author)
+        self.all.find do |gossip|
+            gossip.author == author
+        end
+    end
+
     def save
         CSV.open("./db/gossip.csv", "ab") do |csv|
       csv << [@author, @content]

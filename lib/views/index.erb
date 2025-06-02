@@ -6,15 +6,16 @@
     <h1>Bienvenue sur Gossip!</h1>
     <h2>Voici tous les gossips</h2>
     <a href="/gossips/new/">Mon nouveau gossip</a>
+    <br>
     <hr>
     <div>
         <% gossips.each do |gossip| %>
   <p>
-    <%= gossip.author %><br/>
+    <a href="/show/<%= gossip.author %>"><%= gossip.author %></a><br/>
+    
     <%= gossip.content %>
   </p>
 <% end %>
     </div>
-
   </body>
 </html>
