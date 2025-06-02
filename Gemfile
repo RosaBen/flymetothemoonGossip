@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '3.4.2'
+gem 'csv'
 gem 'dotenv'
 gem 'pry'
+gem 'puma', '~> 6.6'
+gem 'rackup', '~> 2.2'
 gem 'reline'
+gem 'rerun', '~> 0.14.0'
 gem 'rspec'
 gem 'rubocop'
-gem 'csv'
 gem 'sinatra'
-gem "webrick"
-gem "rackup", "~> 2.2"
-gem "puma", "~> 6.6"
-gem "rerun", "~> 0.14.0"
+gem 'webrick'
